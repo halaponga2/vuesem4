@@ -1,5 +1,6 @@
 <template>
-    <!-- <div>{{goods}}</div> -->
+
+  <h1>Доступные товары</h1>
   <div><goods-list :goods="goods" v-on:deleteGoods="deleteGoods"/></div>
   
 </template>

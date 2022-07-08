@@ -9,7 +9,9 @@
         <div>
             <h2>Наши магазины:</h2>
             <ul>
-            <li></li>
+            <li v-for="shop in shops" :key="shop.id">
+                {{shop.name}} - {{shop.location}}
+            </li>
             </ul>
         </div>
         <div>
@@ -20,8 +22,28 @@
 </template>
 
 <script>
-export default {
+import {mapState, mapActions, mapMutations} from "vuex"
 
+export default {
+    methods: {
+        ...mapMutations({
+            setShops: "shops/setShops",
+            setLoaded: "shops/setLoaded",
+        }),
+        ...mapActions({
+            getShops: "shops/getShops",
+        }),
+
+    },
+    computed: {
+        ...mapState({
+            shops: state => state.shops.shops.results,
+            shopsIsLoaded: state => state.shops.shopsIsLoaded,
+        })
+    },
+    mounted(){
+        this.getShops();
+    }
 }
 </script>
 
