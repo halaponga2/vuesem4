@@ -15,6 +15,8 @@ export default {
     components: {
         GoodsList,
     },
+
+
     
     methods: {
         ...mapMutations({
@@ -28,7 +30,7 @@ export default {
 
             try{
                 
-                axios.delete('http://sem4api.std-1387.ist.mospolytech.ru/api/goods/'+id+'/').then(()=>this.getGoods())
+                axios.delete('https://djangoapipolytech.herokuapp.com/api/goods/'+id+'/').then(()=>this.getGoods())
                 
             }
             catch(error){
@@ -40,7 +42,7 @@ export default {
     },
     computed: {
         ...mapState({
-            goods: state => state.goods.goods.results,
+            goods: state => state.goods.goods,
             goodsIsLoaded: state => state.goods.goodsIsLoaded,
         })
     },

@@ -37,7 +37,7 @@ export default {
     },
     computed: {
         ...mapState({
-            shops: state => state.shops.shops.results,
+            shops: state => state.shops.shops,
             shopsIsLoaded: state => state.shops.shopsIsLoaded,
         })
     },

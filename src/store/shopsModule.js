@@ -19,7 +19,7 @@ export const shopsModule = {
         async getShops({commit}){
             
             try{
-                const response = await axios.get("http://sem4api.std-1387.ist.mospolytech.ru/api/shop/")
+                const response = await axios.get("https://djangoapipolytech.herokuapp.com/api/shop/")
                 commit("setShops", response.data)
             }
             catch(error){

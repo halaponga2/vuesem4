@@ -1,5 +1,5 @@
 <template>
-  <h1>Добавить товар</h1>
+  <h1 >Добавить товар</h1>
   <input-goods-form class="input_form" v-on:sendGoods="addGoods"/>
 </template>
 
@@ -11,7 +11,6 @@ export default {
 
   methods: {
     async addGoods(goods){
-        try{
           let config = {
             headers : {
               'Content-Type' : 'multipart/form-data'
@@ -28,17 +27,17 @@ export default {
             fd.append('shops',goods.shops[i]);
           }
           // fd.append('shops', goods.shops)
-            axios.post('http://sem4api.std-1387.ist.mospolytech.ru/api/goods/', fd, config)
+            axios.post('https://djangoapipolytech.herokuapp.com/api/goods/', fd, config)
+            .catch(function(error){
+              console.log(error)
+              alert(error.response.request.response)
+            })
         }
-        catch(error){
-            console.log(error);}
-        finally{
-            alert("добавлено!")
-        }
+        
     }
   }
 
-}
+
 </script>
 
 <style>
