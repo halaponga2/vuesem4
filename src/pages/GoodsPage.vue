@@ -31,7 +31,6 @@ export default {
             deleteGoods: "goods/deleteGoods"
         }),
         deleting(id){
-            console.log(id)
             this.deleteGoods(id)
         }
         

@@ -62,18 +62,18 @@ export const goodsModule = {
             }
             // fd.append('shops', goods.shops)
               axios.post('https://djangoapipolytech.herokuapp.com/api/goods/', fd, config)
+              .then(response => {
+                if(response.status == 201){
+                location.pathname="/goods"}
+              })
               .catch(function(error){
                 console.log(error)
                 alert(error.response.request.response)
-              }).then(response => {
-                if(response.status == 201){
-                location.pathname="/goods"}
               })
           },
           async deleteGoods({dispatch},id){
 
             try{
-                console.log(id)
                 
                 axios.delete('https://djangoapipolytech.herokuapp.com/api/goods/'+id+'/').then(()=>dispatch('getGoods'))
                 
