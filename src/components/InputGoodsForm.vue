@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import {mapState, mapActions, mapMutations} from "vuex"
+import {mapState, mapActions} from "vuex"
 export default {
 
     data(){
@@ -57,10 +57,6 @@ export default {
     },
     
      methods: {
-        ...mapMutations({
-            setShops: "shops/setShops",
-            setLoaded: "shops/setLoaded",
-        }),
         ...mapActions({
             getShops: "shops/getShops",
         }),

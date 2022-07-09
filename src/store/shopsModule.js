@@ -3,7 +3,7 @@ import axios from "axios"
 export const shopsModule = {
     state: () => ({
         shops: [],
-        shopsIsLoaded: false,
+
 
     }),
     getters : {},
@@ -11,9 +11,7 @@ export const shopsModule = {
         setShops(state, shops){
             state.shops = shops;
         },
-        setLoaded(state, bool){
-            state.shopsIsLoaded = bool;
-        }
+
     },
     actions: {
         async getShops({commit}){
@@ -24,9 +22,6 @@ export const shopsModule = {
             }
             catch(error){
                 console.log(error)
-            }
-            finally{
-                commit('setLoaded', true)
             }
         }  
     },

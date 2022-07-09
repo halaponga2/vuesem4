@@ -23,8 +23,7 @@ export default {
     
     methods: {
         ...mapMutations({
-            setGoods: "goods/setGoods",
-            setLoaded: "goods/setLoaded",
+
             setSelectedSort: 'goods/setSelectedSort',
         }),
         ...mapActions({
@@ -41,7 +40,6 @@ export default {
     computed: {
         ...mapState({
             goods: state => state.goods.goods,
-            goodsIsLoaded: state => state.goods.goodsIsLoaded,
             selectedSort: state => state.goods.selectedSort,
             sortOptions: state => state.goods.sortOptions
         }),

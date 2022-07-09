@@ -3,7 +3,7 @@ import axios from "axios"
 export const goodsModule = {
     state: () => ({
         goods: [],
-        goodsIsLoaded: false,
+
         selectedSort: 'default',
         sortOptions: [
             {value:'name', name: 'По названию'},
@@ -28,9 +28,7 @@ export const goodsModule = {
         setGoods(state, goods){
             state.goods = goods;
         },
-        setLoaded(state, bool){
-            state.goodsIsLoaded = bool;
-        },
+
         setSelectedSort(state, selectedSort) {
             state.selectedSort = selectedSort
         },
@@ -44,9 +42,6 @@ export const goodsModule = {
             }
             catch(error){
                 console.log(error)
-            }
-            finally{
-                commit('setLoaded', true)
             }
         },
         async addGoods(state){
