@@ -74,7 +74,20 @@ export const goodsModule = {
                 if(response.status == 201){
                 location.pathname="/goods"}
               })
-          }
+          },
+          async deleteGoods({dispatch},id){
+
+            try{
+                console.log(id)
+                
+                axios.delete('https://djangoapipolytech.herokuapp.com/api/goods/'+id+'/').then(()=>dispatch('getGoods'))
+                
+            }
+            catch(error){
+                console.log(error)
+            }
+
+        },
     },
     
     namespaced: true

@@ -25,7 +25,7 @@ export default {
         goods:{}
     },
     methods:{
-        deleteGoods(id){this.$emit("deleteGoods", [id]);}
+        deleteGoods(id){this.$emit("deleteGoods", id);}
     }
 }
 </script>

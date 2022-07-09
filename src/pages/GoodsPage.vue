@@ -3,7 +3,7 @@
   <h1>Доступные товары</h1>
   <label style="margin-right:10px" for="selector">Выберите сортировку:</label>
   <my-selector id="selector" :modelValue="selectedSort" @update:model-value="setSelectedSort" :options="sortOptions"/>
-  <div><goods-list :goods="sortedGoods" v-on:deleteGoods="deleteGoods"/></div>
+  <div><goods-list :goods="sortedGoods" v-on:deleteGoods="deleting"/></div>
   
 </template>
 
@@ -11,7 +11,6 @@
 import GoodsList from '@/components/GoodsList.vue'
 
 import {mapState, mapActions, mapMutations, mapGetters} from "vuex"
-import axios from 'axios'
 import MySelector from '@/components/MySelector.vue'
 export default {
     
@@ -30,19 +29,13 @@ export default {
         }),
         ...mapActions({
             getGoods: "goods/getGoods",
+            deleteGoods: "goods/deleteGoods"
         }),
-        async deleteGoods(id){
-
-            try{
-                
-                axios.delete('https://djangoapipolytech.herokuapp.com/api/goods/'+id+'/').then(()=>this.getGoods())
-                
-            }
-            catch(error){
-                console.log(error)
-            }
-
-        },
+        deleting(id){
+            console.log(id)
+            this.deleteGoods(id)
+        }
+        
 
     },
     computed: {
