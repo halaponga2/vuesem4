@@ -22,10 +22,13 @@
 </template>
 
 <script>
-import {mapState} from "vuex"
+import {mapState, mapActions} from "vuex"
 
 export default {
-    methods: {
+    methods:{
+        ...mapActions({
+            getShops: "shops/getShops",
+        }),
     },
     computed: {
         ...mapState({
