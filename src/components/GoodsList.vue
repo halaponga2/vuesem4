@@ -36,6 +36,12 @@ export default {
 .card-body {
   background: #fff6ec;
 }
+.card__image {
+  width: 286px;
+  height: 286px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 svg:hover{
   cursor: pointer;
