@@ -28,7 +28,7 @@ export const shopsModule = {
             finally{
                 commit('setLoaded', true)
             }
-        }
+        }  
     },
     namespaced: true
 }

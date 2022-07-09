@@ -48,7 +48,33 @@ export const goodsModule = {
             finally{
                 commit('setLoaded', true)
             }
-        }
+        },
+        async addGoods(state){
+            let config = { 
+              headers : {
+                'Content-Type' : 'multipart/form-data'
+              }
+            }
+            let fd = new FormData();
+            fd.append('name',state.state.goods.name)
+            fd.append('type',state.state.goods.type)
+            fd.append('manufacturer',state.state.goods.manufacturer)
+            fd.append('description',state.state.goods.description)
+            fd.append('price',state.state.goods.price)
+            fd.append('image',state.state.goods.image)
+            for (var i = 0; i<state.state.goods.shops.length; i++){
+              fd.append('shops',state.state.goods.shops[i]);
+            }
+            // fd.append('shops', goods.shops)
+              axios.post('https://djangoapipolytech.herokuapp.com/api/goods/', fd, config)
+              .catch(function(error){
+                console.log(error)
+                alert(error.response.request.response)
+              }).then(response => {
+                if(response.status == 201){
+                location.pathname="/goods"}
+              })
+          }
     },
     
     namespaced: true
