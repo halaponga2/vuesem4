@@ -31,6 +31,9 @@ export default {
             .catch(function(error){
               console.log(error)
               alert(error.response.request.response)
+            }).then(response => {
+              if(response.status == 201){
+              location.pathname="/goods"}
             })
         }
         
