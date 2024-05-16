@@ -37,7 +37,7 @@ export const goodsModule = {
         async getGoods({commit}){
             
             try{
-                const response = await axios.get("https://djangoapipolytech.herokuapp.com/api/goods/")
+                const response = await axios.get("https://djangocourse-production.up.railway.app/api/goods/")
                 commit("setGoods", response.data)
             }
             catch(error){
@@ -61,7 +61,7 @@ export const goodsModule = {
               fd.append('shops',state.state.goods.shops[i]);
             }
             // fd.append('shops', goods.shops)
-              axios.post('https://djangoapipolytech.herokuapp.com/api/goods/', fd, config)
+              axios.post('https://djangocourse-production.up.railway.app/api/goods/', fd, config)
               .then(response => {
                 if(response.status == 201){
                 location.pathname="/goods"}
@@ -75,7 +75,7 @@ export const goodsModule = {
 
             try{
                 
-                axios.delete('https://djangoapipolytech.herokuapp.com/api/goods/'+id+'/').then(()=>dispatch('getGoods'))
+                axios.delete('https://djangocourse-production.up.railway.app/api/goods/'+id+'/').then(()=>dispatch('getGoods'))
                 
             }
             catch(error){
